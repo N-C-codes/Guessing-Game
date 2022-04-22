@@ -19,8 +19,13 @@ class Guessing_Game():
         """Validates the player's input to make sure that an integer value is given."""
 
         try:
-            # Future feature: Modify to allow decimals that are whole numbers, e.g. 10.0:
-            return int(input()) 
+            # Allows decimals that are whole numbers, e.g. 10.0, 10.00, etc. to be accepted as whole numbers:
+            num = float(input().strip()) # Strip any extra whitespace from the input
+            decimal_part = str(num).split(".")[1]
+            if all(digit == "0" for digit in decimal_part):
+                return int(num)
+            else:
+                raise ValueError
         except ValueError: 
             print("Invalid input. Please enter a whole number.")
             return self.validate_input() # Function is called as many times as is necessary to obtain valid input.
