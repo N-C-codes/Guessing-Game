@@ -1,6 +1,6 @@
 from random import randint
 
-class Guessing_Game():
+class GuessingGame():
 
     def __init__(self):
         pass
@@ -115,7 +115,7 @@ class Guessing_Game():
 
 if __name__ == "__main__":
     
-    new_player = Guessing_Game()
+    new_player = GuessingGame()
     new_player.show_instructions()
     while True:
         bounds = new_player.select_bounds() # The bounds between which the player is guessing a number.
