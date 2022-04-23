@@ -76,18 +76,19 @@ class Guessing_Game():
         attempts = self.select_attempt_number(range) # Player can guess how many guess attempts they would like
         answer = randint(self.lower, self.upper) # Computer chooses random number in the range for the player to guess
         attempt_counter = 0
-        while attempt_counter < attempts:
+        while attempt_counter < attempts: # The player has not used up all their guesses
             print("Guess a number:")
             guess = self.validate_input()
 
             if guess < self.lower or guess > self.upper:
                 print(f"Please guess a number between {lower} and {upper}!")
             else:
-                attempt_counter += 1
+                attempt_counter += 1 # Increment guesses used each time a valid guess is made
                 if guess == answer:
                     print("Congratulations! You guessed correctly!\n")
                     break
                 else:
+                    # Display a helpful message to the player to guide their next guess:
                     direction = "high" if guess > answer else "low"
                     print(f"Incorrect: too {direction}!")
                     remaining = attempts - attempt_counter 
